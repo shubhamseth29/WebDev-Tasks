@@ -1,0 +1,15 @@
+<div class="app-wrap">
+    <main>
+      <section class="location">
+        <div class="city">{{WeatherData.name}}</div>
+        <div class="date">Thursday 10 January 2020</div>
+      </section>
+      <div class="current">
+        <div class="temp">{{WeatherData.temp_celcius}}<span> °C</span></div>
+        <div class="weather">Feels Like: {{WeatherData.temp_feels_like}} °C</div>
+        <div class="weather">Humidity: {{WeatherData.main.humidity}}%</div>
+        <div class="weather">Sunny</div>
+        <div class="hi-low">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°</div>
+      </div>
+    </main>
+  </div>
