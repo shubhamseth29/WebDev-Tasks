@@ -12,9 +12,9 @@ export class MainAppComponent implements OnInit {
   location = {
     city: 'Delhi'
   };
-  WeatherData: any;
+   WeatherData: any;
   value: any;
-
+  scrollingElement = (document.scrollingElement || document.body);
   constructor(private weatherService: WeatherService,
               private router: Router) { }
 
@@ -41,11 +41,11 @@ export class MainAppComponent implements OnInit {
       err => {
         console.log('HTTP Error', err)
         alert("OOPS! THIS CITY'S WEATHER IS CURRENTLY NOT ACCESSIBLE");
-        this.router.navigate(['Home']);
+         this.router.navigate(['Home']);
       }
     )
 
-
+    this.scrollToBottom();
   }
 
   setWeatherData(data){
@@ -56,13 +56,20 @@ export class MainAppComponent implements OnInit {
     var dd = String(currentDate.getDate()).padStart(2, '0');
     var mm = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = currentDate.getFullYear();
-    let date = mm + '/' + dd + '/' + yyyy;
+    let date = dd + '/' + mm + '/' + yyyy;
     this.WeatherData.Date = date;
     this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime());
     this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
     this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);
     this.WeatherData.temp_max = (this.WeatherData.main.temp_max - 273.15).toFixed(0);
     this.WeatherData.temp_feels_like = (this.WeatherData.main.feels_like - 273.15).toFixed(0);
+    this.WeatherData.windSpeed=(this.WeatherData.wind.speed);
+
+  }
+
+  scrollToBottom() 
+  {
+   this.scrollingElement.scrollTop = this.scrollingElement.scrollHeight;
   }
 
 

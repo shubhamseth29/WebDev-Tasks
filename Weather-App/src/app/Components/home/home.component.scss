@@ -1,3 +1,6 @@
+$border: linear-gradient(180deg, #fcdcba 0%, #fbcdf2 41.54%);
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -23,24 +26,18 @@ header {
   justify-content: center;
   align-items: center;
   padding: 50px 15px 15px;
+
+  #label{
+    background-image:$border;
+    border-radius:25% 0 25% 0;
+    margin:0px 0px 10px 29px ;
+    font-family: 'Poiret One', cursive;
+    font-size:1.25rem;
+    font-weight:600;
+    }
+    select{
+      background:none;
+    }
 }
 
-header input {
-  width: 100%;
-  max-width: 280px;
-  padding: 10px 15px;
-  border: none;
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 16px 0px 16px 0px;
-  border-bottom: 3px solid #DF8E00;
 
-  color: #313131;
-  font-size: 20px;
-  font-weight: 300;
-  transition: 0.2s ease-out;
-}
-
-header input:focus {
-  background-color: rgba(255, 255, 255, 0.6);
-}
