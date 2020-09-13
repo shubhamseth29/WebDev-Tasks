@@ -16,7 +16,7 @@ export class MainAppComponent implements OnInit {
   value: any;
 
   constructor(private weatherService: WeatherService,
-              private router:Router) { }
+              private router: Router) { }
 
   ngOnInit()
   {
@@ -34,7 +34,7 @@ export class MainAppComponent implements OnInit {
     }
 
     this.weatherService.fetchWeatherData(this.location.city).subscribe(
-      response=>{
+      response => {
         console.log(response);
         this.setWeatherData(response);
       },
@@ -53,6 +53,11 @@ export class MainAppComponent implements OnInit {
     let sunsetTime = new Date(this.WeatherData.sys.sunset * 1000);
     this.WeatherData.sunset_time = sunsetTime.toLocaleTimeString();
     let currentDate = new Date();
+    var dd = String(currentDate.getDate()).padStart(2, '0');
+    var mm = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = currentDate.getFullYear();
+    let date = mm + '/' + dd + '/' + yyyy;
+    this.WeatherData.Date = date;
     this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime());
     this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
     this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);

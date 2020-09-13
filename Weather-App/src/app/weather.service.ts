@@ -25,6 +25,7 @@ export class WeatherService {
     // .then(response => response.json())
     // .then(data => this.setWeatherData(data));
     //   return this.WeatherData;
+    
     let httpHeaders = new HttpHeaders({
       'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
       'x-rapidapi-key': 'd933ca6025msh2813d394dacea28p129abajsn6d3513dbf5d2'
